@@ -24,8 +24,11 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
+    linear-gradient(rgba(255, 248, 234, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 248, 234, 0.018) 1px, transparent 1px),
     radial-gradient(circle at 20% 0%, rgba(184, 107, 50, 0.14), transparent 30rem),
     linear-gradient(180deg, var(--bg), #1a100c 48%, var(--bg));
+  background-size: 38px 38px, 38px 38px, auto, auto;
   color: var(--text);
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   line-height: 1.85;
@@ -168,6 +171,19 @@ iframe {
   padding: 112px 18px 44px;
 }
 
+.hero::after {
+  position: absolute;
+  right: 18px;
+  bottom: 34px;
+  z-index: 1;
+  width: 42px;
+  color: rgba(255, 248, 234, 0.72);
+  content: "熊野町の夜に、ちょうどいい一軒。";
+  font-size: 15px;
+  line-height: 1.7;
+  writing-mode: vertical-rl;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -296,6 +312,45 @@ h3 {
   font-size: 13px;
 }
 
+.hand-note {
+  position: relative;
+  width: min(100%, 390px);
+  margin-top: 24px;
+  border: 1px solid rgba(214, 163, 84, 0.32);
+  border-radius: 3px 8px 5px 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 234, 0.1), rgba(255, 255, 255, 0.035)),
+    rgba(31, 23, 18, 0.72);
+  padding: 15px 16px;
+  box-shadow: 9px 12px 0 rgba(0, 0, 0, 0.18);
+  transform: rotate(-1deg);
+}
+
+.hand-note::before {
+  position: absolute;
+  top: -10px;
+  left: 22px;
+  width: 64px;
+  height: 18px;
+  background: rgba(214, 163, 84, 0.22);
+  content: "";
+  transform: rotate(2deg);
+}
+
+.hand-note span,
+.menu-aside,
+.playful-rule strong {
+  color: var(--gold);
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 800;
+}
+
+.hand-note p {
+  margin: 4px 0 0;
+  color: #fff8ea;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
 .section {
   width: min(100% - 36px, 1080px);
   margin: 0 auto;
@@ -304,6 +359,20 @@ h3 {
 
 .intro {
   max-width: 860px;
+}
+
+.small-scenes {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.small-scenes span {
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(184, 107, 50, 0.18), transparent);
+  padding: 8px 12px;
+  color: #fff8ea;
 }
 
 .section-heading {
@@ -412,6 +481,14 @@ h3 {
   align-items: center;
 }
 
+.menu-aside {
+  width: min(100%, 620px);
+  margin: 22px 0 0;
+  border-left: 3px solid var(--red);
+  padding-left: 14px;
+  font-size: 14px;
+}
+
 .menu-page {
   padding-top: 78px;
 }
@@ -424,6 +501,11 @@ h3 {
 
 .menu-hero h1 {
   font-size: clamp(36px, 10vw, 68px);
+}
+
+.menu-note {
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
 .menu-jump {
@@ -515,6 +597,18 @@ h3 {
 .party,
 .contact {
   padding: 28px 18px;
+}
+
+.playful-rule {
+  margin-top: 28px;
+  border-top: 1px dashed rgba(214, 163, 84, 0.45);
+  padding-top: 18px;
+}
+
+.playful-rule p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
 .info-card {
@@ -610,6 +704,11 @@ h3 {
     padding-inline: 30px;
   }
 
+  .hero::after {
+    right: clamp(24px, 5vw, 70px);
+    bottom: 56px;
+  }
+
   .hero-actions,
   .contact-actions {
     display: flex;
@@ -637,6 +736,10 @@ h3 {
   .party,
   .contact {
     padding: 42px;
+  }
+
+  .small-scenes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .fixed-call {
